@@ -66,10 +66,7 @@ def query_jsearch(api_key, query_cfg, num_pages):
             file=sys.stderr,
         )
     resp.raise_for_status()
-    response_json = resp.json()
-# search-v2 may nest under 'data' or return a list directly
-results = response_json.get("data", response_json) if isinstance(response_json, dict) else response_json
-return results if isinstance(results, list) else []
+    return resp.json().get("data", [])
 
 
 def passes_filters(job, criteria):
@@ -118,9 +115,7 @@ def main():
             continue
 
         for job in results:
-            if not isinstance(job, dict):
-            continue
-          job_id = job.get("job_id")
+            job_id = job.get("job_id")
             if not job_id or job_id in master:
                 continue
             if not passes_filters(job, criteria):
@@ -171,3 +166,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+Done
+Now update the response parsing to handle the search-v2 format correctly:
+
+
+Edited 2 files, ran a command
