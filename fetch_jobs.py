@@ -21,8 +21,7 @@ import requests
 
 CRITERIA_PATH = "criteria.json"
 MASTER_PATH = "data/jobs_master.json"
-API_HOST = "jsearch.p.rapidapi.com"
-API_URL = f"https://{API_HOST}/search"
+API_URL = "https://api.openwebninja.com/jsearch/search-v2"
 
 
 def load_criteria():
@@ -45,8 +44,7 @@ def save_master(master):
 
 def query_jsearch(api_key, query_cfg, num_pages):
     headers = {
-        "X-RapidAPI-Key": api_key,
-        "X-RapidAPI-Host": API_HOST,
+        "x-api-key": api_key,
     }
     params = {
         "query": f"{query_cfg['search_term']} in {query_cfg.get('location', '')}".strip(),
