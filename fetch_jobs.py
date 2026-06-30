@@ -66,7 +66,10 @@ def query_jsearch(api_key, query_cfg, num_pages):
             file=sys.stderr,
         )
     resp.raise_for_status()
-    return resp.json().get("data", [])
+    response_json = resp.json()
+# search-v2 may nest under 'data' or return a list directly
+results = response_json.get("data", response_json) if isinstance(response_json, dict) else response_json
+return results if isinstance(results, list) else []
 
 
 def passes_filters(job, criteria):
