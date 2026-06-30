@@ -170,5 +170,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-Done
-Select all and paste that into the GitHub editor, commit to main, and run the workflow. This should finally get you jobs in the CSV — the API is aut
