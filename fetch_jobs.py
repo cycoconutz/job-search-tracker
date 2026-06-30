@@ -115,7 +115,9 @@ def main():
             continue
 
         for job in results:
-            job_id = job.get("job_id")
+            if not isinstance(job, dict):
+            continue
+          job_id = job.get("job_id")
             if not job_id or job_id in master:
                 continue
             if not passes_filters(job, criteria):
