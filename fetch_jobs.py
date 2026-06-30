@@ -60,13 +60,11 @@ def query_jsearch(api_key, query_cfg, num_pages):
         params["employment_types"] = ",".join(query_cfg["employment_types"])
 
     resp = requests.get(API_URL, headers=headers, params=params, timeout=30)
-    if resp.status_code == 403:
+    if not resp.ok:
         print(
-            "ERROR: 403 Forbidden from JSearch API. This almost always means "
-            "your RapidAPI key isn't subscribed to JSearch (or the subscription "
-            "lapsed/quota ran out). Go to "
-            "https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch and check "
-            "you're subscribed to a plan, then verify the RAPIDAPI_KEY secret.",
+            f"ERROR: HTTP {resp.status_code} from JSearch API.\n"
+            f"URL: {resp.url}\n"
+            f"Response body: {resp.text[:500]}",
             file=sys.stderr,
         )
     resp.raise_for_status()
