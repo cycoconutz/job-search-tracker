@@ -1,9 +1,9 @@
 {
   "queries": [
     {
-      "search_term": "software engineer",
+      "search_term": "frontend developer",
       "location": "United States",
-      "remote_only": false,
+      "remote_only": true,
       "employment_types": ["FULLTIME"],
       "date_posted": "today"
     }
