@@ -1,0 +1,14 @@
+{
+  "queries": [
+    {
+      "search_term": "software engineer",
+      "location": "United States",
+      "remote_only": false,
+      "employment_types": ["FULLTIME"],
+      "date_posted": "today"
+    }
+  ],
+  "num_pages": 1,
+  "exclude_companies": [],
+  "exclude_keywords_in_title": []
+}
