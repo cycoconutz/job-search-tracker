@@ -1,11 +1,11 @@
 {
   "queries": [
     {
-      "search_term": "frontend developer",
+      "search_term": "",
       "location": "United States",
       "remote_only": true,
       "employment_types": ["FULLTIME"],
-      "date_posted": "today"
+      "date_posted": "this week"
     }
   ],
   "num_pages": 1,
