@@ -6,18 +6,21 @@ and logs new results to this repo.
 
 ## Setup
 
-1. **Create this repo on GitHub** and push this code to it (see commands below).
+This repo is already configured and running on a schedule: a GitHub Actions
+workflow fetches matching postings daily at 13:00 UTC and commits the results
+to `data/`. The steps below document how the pipeline works if you want to
+fork it or change the schedule.
 
-2. **Get a JSearch API key**
+1. **Get a JSearch API key**
    - Go to https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch
    - Sign up / log in, subscribe to the free tier, copy your `X-RapidAPI-Key`.
 
-3. **Add the key as a repo secret**
+2. **Add the key as a repo secret**
    - In your GitHub repo: Settings → Secrets and variables → Actions → New repository secret
    - Name: `RAPIDAPI_KEY`
    - Value: (paste your key)
 
-4. **Adjust your search criteria**
+3. **Adjust your search criteria**
    - Edit `criteria.json` any time. Commit and push the change — the next
      scheduled run (or a manual run) will pick it up.
 
@@ -41,7 +44,7 @@ and logs new results to this repo.
    You can list multiple query objects in `queries` to search several titles/locations
    in one run.
 
-5. **Schedule**
+4. **Schedule**
    - Runs daily at 13:00 UTC by default (see `.github/workflows/daily-job-search.yml`).
    - Edit the `cron` line to change the time, or use the "Run workflow" button
      under the Actions tab to trigger it on demand.
